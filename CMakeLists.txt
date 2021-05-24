@@ -10,4 +10,5 @@ add_executable(
         file_util.c
         hzip.c
         frequency.c
+        pqueue.c
 )

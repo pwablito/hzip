@@ -26,7 +26,6 @@ struct FreqTable generate_frequencies(const char* buffer, int size) {
     for (unsigned int position = 0; position < size; position++) {
         set_frequency(table, buffer[position], get_frequency(table, buffer[position]) + 1);
     }
-    print_frequency_table(table);
     return table;
 }
 
