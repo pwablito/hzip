@@ -3,7 +3,7 @@
 #include "frequency.h"
 
 struct FreqTable create_frequency_table() {
-    int size = sizeof(int) * 0xff;
+    int size = sizeof(unsigned int) * 0xff;
     struct FreqTable table;
     table.table = calloc(size, 1);
     return table;
@@ -13,11 +13,11 @@ void destroy_frequency_table(struct FreqTable table) {
     free(table.table);
 }
 
-int get_frequency(const struct FreqTable table, const char byte) {
+unsigned int get_frequency(const struct FreqTable table, const unsigned char byte) {
     return table.table[byte];
 }
 
-void set_frequency(struct FreqTable table, const char byte, const int value) {
+void set_frequency(struct FreqTable table, const char byte, const unsigned int value) {
     table.table[byte] = value;
 }
 
