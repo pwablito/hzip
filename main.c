@@ -34,6 +34,7 @@ int main(int argc, char** argv) {
             buf_pos++;
         }
     }
+    fclose(input_file);
 
     assert(buf_pos == file_size);
 
