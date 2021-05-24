@@ -30,7 +30,7 @@ struct FreqTable generate_frequencies(const char* buffer, int size) {
 }
 
 void print_frequency_table(struct FreqTable table) {
-    for (unsigned char character = 0; character < 0xff; character++) {
+    for (unsigned int character = 0; character <= 0xff; character++) {
         printf("%u(%c): %d\n", character, character, get_frequency(table, character));
     }
 }
