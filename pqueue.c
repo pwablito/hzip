@@ -50,6 +50,8 @@ void pqueue_insert(struct PQueue* queue, const unsigned char data, const unsigne
         }
     }
     queue->size++;
+    print_pqueue(queue);
+    printf("---------\n");
 }
 
 unsigned char pqueue_pop(struct PQueue* queue) {

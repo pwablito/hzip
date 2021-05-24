@@ -1,3 +1,4 @@
+#include <string.h>
 #include "frequency.h"
 #include "pqueue.h"
 
@@ -11,20 +12,14 @@ int huffman_compress(const char* in_buffer, char* out_buffer, int size) {
             pqueue_insert(queue, character, frequency);
         }
     }
-//    print_frequency_table(table);
+
     print_pqueue(queue);
+    
     destroy_pqueue(queue);
     destroy_frequency_table(table);
 
-    int length = 0;
-    while (1) {
-        if (in_buffer[length]) {
-            out_buffer[length] = in_buffer[length];
-            length++;
-        }
-        else {
-            break;
-        }
-    }
-    return length;
+    //TODO remove this and write compressed buffer into output
+    memcpy(out_buffer, in_buffer, size);
+
+    return size;
 }
