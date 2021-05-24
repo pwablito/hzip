@@ -40,7 +40,7 @@ int main(int argc, char** argv) {
 
     char* compressed_buffer = calloc(file_size * sizeof(char), 1);
 
-    int hzip_result = huffman_compress(file_buffer, compressed_buffer);
+    int hzip_result = huffman_compress(file_buffer, compressed_buffer, file_size);
     
     if (hzip_result == 0) {
         printf("Unsuccessful compression");

@@ -9,4 +9,4 @@ add_executable(
         main.c
         file_util.c
         hzip.c
-)
+        frequency.c frequency.h)

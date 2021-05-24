@@ -1,1 +1,1 @@
-int huffman_compress(const char* in_buffer, char* out_buffer);
+int huffman_compress(const char* in_buffer, char* out_buffer, int size);
