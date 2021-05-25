@@ -34,7 +34,7 @@ void pqueue_insert(struct PQueue* queue, const unsigned char data, const unsigne
                 queue->head = node;
                 break;
             } else {
-                if (current_node->key >= key) {
+                if (current_node->key <= key) {
                     node->next = current_node->next;
                     node->previous = current_node;
                     if (node->next) {

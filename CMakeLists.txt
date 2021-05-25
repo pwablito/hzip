@@ -11,4 +11,5 @@ add_executable(
         hzip.c
         frequency.c
         pqueue.c
+        huffman_tree.c
 )

@@ -18,28 +18,13 @@ int main(int argc, char** argv) {
     }
 
     int file_size = get_file_size(input_file);
-    char* file_buffer = calloc(file_size * sizeof(char), 1);
-    int buf_pos = 0;
-    while (1) {
-        char byte = getc(input_file);
-        if (byte == EOF) {
-            break;
-        }
-        else {
-            if (buf_pos >= file_size) {
-                printf("File size error, exiting");
-                return 1;
-            }
-            file_buffer[buf_pos] = byte;
-            buf_pos++;
-        }
+    unsigned char* file_buffer = calloc(file_size * sizeof(char), 1);
+    for (int buf_pos = 0; buf_pos < file_size; buf_pos++) {
+        file_buffer[buf_pos] = (unsigned char)getc(input_file);
     }
     fclose(input_file);
 
-    assert(buf_pos == file_size);
-
-
-    char* compressed_buffer = calloc(file_size * sizeof(char), 1);
+    unsigned char* compressed_buffer = calloc(file_size * sizeof(char), 1);
 
     int hzip_result = huffman_compress(file_buffer, compressed_buffer, file_size);
     

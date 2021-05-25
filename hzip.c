@@ -2,7 +2,7 @@
 #include "frequency.h"
 #include "pqueue.h"
 
-int huffman_compress(const char* in_buffer, char* out_buffer, int size) {
+int huffman_compress(unsigned char* in_buffer, unsigned char* out_buffer, int size) {
 
     struct FreqTable table = generate_frequencies(in_buffer, size);
     struct PQueue* queue = create_pqueue();

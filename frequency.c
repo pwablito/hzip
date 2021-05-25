@@ -21,7 +21,7 @@ void set_frequency(struct FreqTable table, const char byte, const unsigned int v
     table.table[byte] = value;
 }
 
-struct FreqTable generate_frequencies(const char* buffer, int size) {
+struct FreqTable generate_frequencies(const unsigned char* buffer, int size) {
     struct FreqTable table = create_frequency_table();
     for (unsigned int position = 0; position < size; position++) {
         set_frequency(table, buffer[position], get_frequency(table, buffer[position]) + 1);
