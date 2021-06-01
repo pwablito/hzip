@@ -1,5 +1,6 @@
 #include <assert.h>
 
 int main(int argc, char** argv) {
-    return 1;
+    assert("NOT IMPLEMENTED" == 0);
+    return 0;
 }
