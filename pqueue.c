@@ -23,28 +23,25 @@ void pqueue_insert(struct PQueue* queue, const unsigned char data, const unsigne
     node->key = key;
     if (queue->size == 0) {
         queue->head = node;
-        queue->tail = node;
+    }
+    else if (node->key < queue->head->key) {
+        node->next = queue->head;
+        queue->head = node;
     }
     else {
-        struct PQueueNode* current_node = queue->tail;
+        struct PQueueNode* current_node = queue->head;
         while (1) {
-            if (!current_node) {
-                node->next = queue->head;
-                queue->head->previous = node;
-                queue->head = node;
+            if (!current_node->next) {
+                current_node->next = node;
                 break;
             } else {
-                if (current_node->key <= key) {
+                if (node->key < current_node->next->key) {
                     node->next = current_node->next;
-                    node->previous = current_node;
-                    if (node->next) {
-                        node->next->previous = node;
-                    }
                     current_node->next = node;
                     break;
                 }
                 else {
-                    current_node = current_node->previous;
+                    current_node = current_node->next;
                 }
             }
         }
@@ -59,17 +56,11 @@ unsigned char pqueue_pop(struct PQueue* queue) {
         printf("PQUEUE ERROR: Can't pop empty queue");
         exit(1);
     }
-    queue->size--;
     struct PQueueNode* node = queue->head;
     queue->head = node->next;
-    if (node->next) {
-        node->next->previous = NULL;
-    }
-    if (queue->size == 0) {
-        queue->tail = NULL;
-    }
     unsigned char data = node->data;
     free(node);
+    queue->size--;
     return data;
 }
 
