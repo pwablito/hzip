@@ -61,11 +61,3 @@ void* pqueue_pop(struct PQueue* queue) {
     queue->size--;
     return data;
 }
-
-void print_pqueue(struct PQueue* queue) {
-    struct PQueueNode* current_node = queue->head;
-    while (current_node) {
-        printf("%u(%c): %u\n", current_node->data, current_node->data, current_node->key);
-        current_node = current_node->next;
-    }
-}
