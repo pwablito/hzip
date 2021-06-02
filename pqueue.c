@@ -17,7 +17,7 @@ void destroy_pqueue(struct PQueue* queue) {
     free(queue);
 }
 
-void pqueue_insert(struct PQueue* queue, const unsigned char data, const unsigned int key) {
+void pqueue_insert(struct PQueue* queue, void* data, const unsigned int key) {
     struct PQueueNode* node = calloc(sizeof(struct PQueueNode), 1);
     node->data = data;
     node->key = key;
@@ -51,14 +51,14 @@ void pqueue_insert(struct PQueue* queue, const unsigned char data, const unsigne
     printf("---------\n");
 }
 
-unsigned char pqueue_pop(struct PQueue* queue) {
+void* pqueue_pop(struct PQueue* queue) {
     if (queue->size == 0) {
         printf("PQUEUE ERROR: Can't pop empty queue");
         exit(1);
     }
     struct PQueueNode* node = queue->head;
     queue->head = node->next;
-    unsigned char data = node->data;
+    void* data = node->data;
     free(node);
     queue->size--;
     return data;
