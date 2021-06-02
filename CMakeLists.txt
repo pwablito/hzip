@@ -12,6 +12,7 @@ add_executable(
         frequency.c
         pqueue.c
         huffman_tree.c
+        key_table.c
 )
 
 add_executable(

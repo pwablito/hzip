@@ -1,4 +1,5 @@
 #include <string.h>
+#include <assert.h>
 #include "frequency.h"
 #include "pqueue.h"
 #include "huffman_tree.h"
@@ -7,7 +8,7 @@ int huffman_compress(unsigned char* in_buffer, unsigned char* out_buffer, int si
 
     struct FreqTable table = generate_frequencies(in_buffer, size);
     struct PQueue* queue = create_pqueue();
-    for (unsigned int character = 0; character <= 0xff; character++) {
+    for (unsigned int character = 0; character < 0x100; character++) {
         unsigned int frequency = get_frequency(table, character);
         if (frequency) {
             struct HTree* tree = create_leaf_tree(frequency, character);
@@ -21,8 +22,12 @@ int huffman_compress(unsigned char* in_buffer, unsigned char* out_buffer, int si
     }
 
     struct HTree* tree = pqueue_pop(queue);
+    assert(queue->size == 0);
 
-    
+    // Traverse tree and fill in key table
+    struct KeyTable key_table = convert_tree_to_keys(tree);
+
+    destroy_key_table(key_table);
     destroy_pqueue(queue);
     destroy_frequency_table(table);
 
