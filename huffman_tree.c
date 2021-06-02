@@ -1,4 +1,5 @@
 #include "huffman_tree.h"
+#include "key_table.h"
 #include <stdlib.h>
 #include <assert.h>
 
@@ -31,4 +32,21 @@ void destroy_tree(struct HTree* tree) {
         destroy_tree(tree->right);
     }
     free(tree);
+}
+
+void insert_tree_to_table(struct HTree* tree, struct KeyTable table, unsigned int prefix_data, unsigned int prefix_length) {
+    if (tree->is_leaf) {
+        set_key_table_value(table, tree->leaf_data, prefix_data, prefix_length);
+    } else {
+        unsigned int next_data = prefix_data << 1;
+        insert_tree_to_table(tree->left, table, next_data, prefix_length + 1);
+        insert_tree_to_table(tree->right, table, next_data|1, prefix_length + 1);
+    }
+
+}
+
+struct KeyTable convert_tree_to_keys(struct HTree* tree) {
+    struct KeyTable table = create_key_table();
+    insert_tree_to_table(tree, table, 0, 0);
+    return table;
 }

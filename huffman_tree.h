@@ -1,4 +1,5 @@
 #include <stdbool.h>
+#include "key_table.h"
 
 struct HTree {
     struct HTree* left;
@@ -11,3 +12,4 @@ struct HTree {
 struct HTree* combine_trees(struct HTree* tree_1, struct HTree* tree_2);
 struct HTree* create_leaf_tree(unsigned int freq, char data);
 void destroy_tree(struct HTree* tree);
+struct KeyTable convert_tree_to_keys(struct HTree* tree);

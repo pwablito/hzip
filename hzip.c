@@ -1,4 +1,5 @@
 #include <string.h>
+#include <assert.h>
 #include "frequency.h"
 #include "pqueue.h"
 #include "huffman_tree.h"
@@ -21,8 +22,12 @@ int huffman_compress(unsigned char* in_buffer, unsigned char* out_buffer, int si
     }
 
     struct HTree* tree = pqueue_pop(queue);
+    assert(queue->size == 0);
 
-    
+    // Traverse tree and fill in key table
+    struct KeyTable key_table = convert_tree_to_keys(tree);
+
+    destroy_key_table(key_table);
     destroy_pqueue(queue);
     destroy_frequency_table(table);
 
