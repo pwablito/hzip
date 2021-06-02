@@ -1,3 +1,6 @@
+#ifndef KEY_TABLE_H
+#define KEY_TABLE_H
+
 struct KeyTableEntry {
     unsigned int bit_length;
     unsigned int data;
@@ -16,3 +19,5 @@ unsigned int lookup_bit_length(struct KeyTable table, char byte);
 unsigned int lookup_table_value(struct KeyTable table, char byte);
 
 void set_key_table_value(struct KeyTable table, char byte, unsigned int data, unsigned int bit_length);
+
+#endif
