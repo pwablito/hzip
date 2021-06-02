@@ -4,7 +4,7 @@
 
 struct KeyTable create_key_table() {
     struct KeyTable table;
-    table.table = calloc(0xff, sizeof(struct KeyTableEntry));
+    table.table = calloc(0x100, sizeof(struct KeyTableEntry));
     return table;
 }
 

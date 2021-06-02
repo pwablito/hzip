@@ -3,7 +3,7 @@
 #include "frequency.h"
 
 struct FreqTable create_frequency_table() {
-    int size = sizeof(unsigned int) * 0xff;
+    int size = sizeof(unsigned int) * 0x100;
     struct FreqTable table;
     table.table = calloc(size, 1);
     return table;
@@ -30,7 +30,7 @@ struct FreqTable generate_frequencies(const unsigned char* buffer, int size) {
 }
 
 void print_frequency_table(struct FreqTable table) {
-    for (unsigned int character = 0; character <= 0xff; character++) {
+    for (unsigned int character = 0; character < 0x100; character++) {
         printf("%u(%c): %d\n", character, character, get_frequency(table, character));
     }
 }

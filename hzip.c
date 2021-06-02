@@ -8,7 +8,7 @@ int huffman_compress(unsigned char* in_buffer, unsigned char* out_buffer, int si
 
     struct FreqTable table = generate_frequencies(in_buffer, size);
     struct PQueue* queue = create_pqueue();
-    for (unsigned int character = 0; character <= 0xff; character++) {
+    for (unsigned int character = 0; character < 0x100; character++) {
         unsigned int frequency = get_frequency(table, character);
         if (frequency) {
             struct HTree* tree = create_leaf_tree(frequency, character);
