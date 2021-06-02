@@ -24,6 +24,7 @@ add_executable(
         htree_test
         huffman_tree.c
         htree_test.c
+        pqueue.c
 )
 
 
