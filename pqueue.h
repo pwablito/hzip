@@ -17,5 +17,3 @@ void destroy_pqueue(struct PQueue* queue);
 void pqueue_insert(struct PQueue* queue, void* data, unsigned int key);
 
 void* pqueue_pop(struct PQueue* queue);
-
-void print_pqueue(struct PQueue* queue);
