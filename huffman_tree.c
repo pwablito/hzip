@@ -17,7 +17,7 @@ struct HTree* combine_trees(struct HTree* tree_1, struct HTree* tree_2) {
     return new_tree;
 }
 
-struct HTree* create_leaf_tree(int freq, char data) {
+struct HTree* create_leaf_tree(unsigned int freq, char data) {
     struct HTree* new_tree = calloc(1, sizeof(struct HTree));
     new_tree->freq = freq;
     new_tree->is_leaf = true;

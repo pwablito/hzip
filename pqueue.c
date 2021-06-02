@@ -47,8 +47,6 @@ void pqueue_insert(struct PQueue* queue, void* data, const unsigned int key) {
         }
     }
     queue->size++;
-    print_pqueue(queue);
-    printf("---------\n");
 }
 
 void* pqueue_pop(struct PQueue* queue) {
