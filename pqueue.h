@@ -1,14 +1,12 @@
 struct PQueueNode {
     unsigned char data;
     unsigned int key;
-    struct PQueueNode* previous;
     struct PQueueNode* next;
 };
 
 // Higher keys are higher priority
 struct PQueue {
     struct PQueueNode* head;
-    struct PQueueNode* tail;
     int size;
 };
 
