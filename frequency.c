@@ -17,14 +17,14 @@ unsigned int get_frequency(const struct FreqTable table, const unsigned char byt
     return table.table[byte];
 }
 
-void set_frequency(struct FreqTable table, const char byte, const unsigned int value) {
-    table.table[byte] = value;
+void increment_frequency(struct FreqTable table, const char byte) {
+    table.table[byte] += 1;
 }
 
 struct FreqTable generate_frequencies(const unsigned char* buffer, int size) {
     struct FreqTable table = create_frequency_table();
     for (unsigned int position = 0; position < size; position++) {
-        set_frequency(table, buffer[position], get_frequency(table, buffer[position]) + 1);
+        increment_frequency(table, buffer[position]);
     }
     return table;
 }
