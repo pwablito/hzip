@@ -13,6 +13,7 @@ add_executable(
         pqueue.c
         huffman_tree.c
         key_table.c
+        io.c
 )
 
 add_executable(
