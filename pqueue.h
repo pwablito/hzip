@@ -4,7 +4,7 @@ struct PQueueNode {
     struct PQueueNode* next;
 };
 
-// Higher keys are higher priority
+// Lower keys are higher priority
 struct PQueue {
     struct PQueueNode* head;
     int size;
