@@ -17,7 +17,7 @@ unsigned int get_frequency(const struct FreqTable table, const unsigned char byt
     return table.table[byte];
 }
 
-void increment_frequency(struct FreqTable table, const char byte) {
+void increment_frequency(struct FreqTable table, const unsigned char byte) {
     table.table[byte] += 1;
 }
 

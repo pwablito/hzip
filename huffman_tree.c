@@ -14,6 +14,7 @@ struct HTree* combine_trees(struct HTree* tree_1, struct HTree* tree_2) {
         new_tree->left = tree_2;
         new_tree->right = tree_1;
     }
+    new_tree->is_leaf = false;
     new_tree->freq = tree_1->freq + tree_2->freq;
     return new_tree;
 }
