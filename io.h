@@ -3,6 +3,6 @@
 
 #include "key_table.h"
 
-int write_key_table(char* buffer, struct KeyTable table); // Returns # of bytes written
+int write_key_table(unsigned char* buffer, struct KeyTable table); // Returns # of bytes written
 
 #endif
