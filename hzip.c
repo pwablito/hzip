@@ -18,6 +18,8 @@ int huffman_compress(unsigned char* in_buffer, unsigned char* out_buffer, int si
 
     while (queue->size > 1) {
         struct HTree* new_tree = combine_trees(pqueue_pop(queue), pqueue_pop(queue));
+        assert(new_tree);
+        assert(new_tree->freq);
         pqueue_insert(queue, new_tree, new_tree->freq);
     }
 
