@@ -39,7 +39,6 @@ void destroy_tree(struct HTree* tree) {
 
 void insert_tree_to_table(struct HTree* tree, struct KeyTable table, unsigned int prefix_data, unsigned int prefix_length) {
     if (tree->is_leaf) {
-        // assert(!tree->left);
         if (tree->left || tree->right) {
             assert(0);
         }
