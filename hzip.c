@@ -18,6 +18,8 @@ int huffman_compress(unsigned char* in_buffer, unsigned char* out_buffer, int si
 
     while (queue->size > 1) {
         struct HTree* new_tree = combine_trees(pqueue_pop(queue), pqueue_pop(queue));
+        assert(new_tree);
+        assert(new_tree->freq);
         pqueue_insert(queue, new_tree, new_tree->freq);
     }
 
@@ -27,6 +29,7 @@ int huffman_compress(unsigned char* in_buffer, unsigned char* out_buffer, int si
     // Traverse tree and fill in key table
     struct KeyTable key_table = convert_tree_to_keys(tree);
 
+    destroy_tree(tree);
     destroy_key_table(key_table);
     destroy_pqueue(queue);
     destroy_frequency_table(table);

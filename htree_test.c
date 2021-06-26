@@ -28,7 +28,7 @@ int main(int argc, char** argv) {
 
     assert(!tree->is_leaf);
     assert(!tree->left->is_leaf);
-    assert(tree->left->left->left->leaf_data == 'f');
+    assert(tree->left->left->left->leaf_data == 'c');
 
 
 
