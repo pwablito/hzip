@@ -50,3 +50,5 @@ add_test(
 
 )
 set_tests_properties(htree_test PROPERTIES WILL_FAIL FALSE)
+
+install(TARGETS hzip DESTINATION bin)
