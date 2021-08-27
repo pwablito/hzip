@@ -7,7 +7,7 @@ struct KeyTableEntry {
 };
 
 struct KeyTable {
-    struct KetTableEntry* table;
+    struct KeyTableEntry* table;
 };
 
 struct KeyTable create_key_table();

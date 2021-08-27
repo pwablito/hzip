@@ -1,5 +1,7 @@
 #include "io.h"
 #include "key_table.h"
+#include <stdio.h>
+#include <string.h>
 
 int write_key_table(unsigned char* buffer, struct KeyTable table) {
     // TODO optimize this
