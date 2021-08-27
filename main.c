@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
     }
     fclose(input_file);
 
-    unsigned char* compressed_buffer = calloc(file_size * sizeof(char), 1);
+    unsigned char* compressed_buffer = calloc(file_size * sizeof(char), 1);  // TODO should be creating the buffer in huffman_compress rather than here to get the size right
 
     int hzip_result = huffman_compress(file_buffer, compressed_buffer, file_size);
     
