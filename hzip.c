@@ -3,6 +3,7 @@
 #include "frequency.h"
 #include "pqueue.h"
 #include "huffman_tree.h"
+#include "io.h"
 
 int huffman_compress(unsigned char* in_buffer, unsigned char* out_buffer, int size) {
 
@@ -28,14 +29,12 @@ int huffman_compress(unsigned char* in_buffer, unsigned char* out_buffer, int si
 
     // Traverse tree and fill in key table
     struct KeyTable key_table = convert_tree_to_keys(tree);
+    int bits_written = write_key_table(out_buffer, key_table);
+    bits_written += write_compressed_buffer(out_buffer + bits_written / 8, key_table, in_buffer, size);
 
     destroy_tree(tree);
     destroy_key_table(key_table);
     destroy_pqueue(queue);
     destroy_frequency_table(table);
-
-    //TODO remove this and write compressed buffer into output
-    memcpy(out_buffer, in_buffer, size);
-
-    return size;
+    return bits_written / 8;
 }

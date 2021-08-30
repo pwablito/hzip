@@ -13,6 +13,7 @@ add_executable(
         pqueue.c
         huffman_tree.c
         key_table.c
+        io.c
 )
 
 add_executable(
@@ -26,6 +27,12 @@ add_executable(
         huffman_tree.c
         htree_test.c
         pqueue.c
+        key_table.c
+)
+add_executable(
+        io_test
+        io_test.c
+        io.c
         key_table.c
 )
 
@@ -47,7 +54,12 @@ set_tests_properties(pqueue_test PROPERTIES WILL_FAIL FALSE)
 add_test(
         htree_test
         htree_test
+)
+set_tests_properties(htree_test PROPERTIES WILL_FAIL FALSE)
 
+add_test(
+        io_test
+        io_test
 )
 set_tests_properties(htree_test PROPERTIES WILL_FAIL FALSE)
 
