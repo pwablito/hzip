@@ -6,27 +6,27 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(
         hzip
-        main.c
-        file_util.c
-        hzip.c
-        frequency.c
-        pqueue.c
-        huffman_tree.c
-        key_table.c
+        src/main.c
+        src/file_util.c
+        src/hzip.c
+        src/frequency.c
+        src/pqueue.c
+        src/huffman_tree.c
+        src/key_table.c
 )
 
 add_executable(
         pqueue_test
-        pqueue.c
-        pqueue_test.c
+        src/pqueue.c
+        src/pqueue_test.c
 )
 
 add_executable(
         htree_test
-        huffman_tree.c
-        htree_test.c
-        pqueue.c
-        key_table.c
+        src/huffman_tree.c
+        src/htree_test.c
+        src/pqueue.c
+        src/key_table.c
 )
 
 
