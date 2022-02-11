@@ -45,8 +45,8 @@ void insert_tree_to_table(struct HTree* tree, struct KeyTable table, unsigned in
         set_key_table_value(table, tree->leaf_data, prefix_data, prefix_length);
     } else {
         unsigned int next_data = prefix_data << 1;
-        insert_tree_to_table(tree->left, table, next_data, prefix_length + 1);
-        insert_tree_to_table(tree->right, table, next_data|1, prefix_length + 1);
+        if (tree->left) insert_tree_to_table(tree->left, table, next_data, prefix_length + 1);
+        if (tree->right) insert_tree_to_table(tree->right, table, next_data|1, prefix_length + 1);
     }
 
 }
